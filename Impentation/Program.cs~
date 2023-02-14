@@ -1,0 +1,32 @@
+﻿namespace Impentation;
+class Program
+{
+    static void Main(string[] args)
+    {
+       
+    }
+    public static void LanguageOption()
+    {
+       start: Console.WriteLine(@"Choose your Language: using the numbers\n
+                            1: English\n
+                            2: Chinese\n
+                            3: Russian\n");
+
+        string? Input = Console.ReadLine();
+
+        switch (Input??" ")
+        {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            default:
+                Console.Clear();
+                Console.WriteLine($@"{Input} is an Invalid Option");
+                goto start;
+        }
+    }
+}
+

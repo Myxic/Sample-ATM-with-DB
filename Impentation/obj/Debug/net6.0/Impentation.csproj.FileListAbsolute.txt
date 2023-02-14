@@ -1,0 +1,15 @@
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/bin/Debug/net6.0/Impentation
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/bin/Debug/net6.0/Impentation.deps.json
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/bin/Debug/net6.0/Impentation.runtimeconfig.json
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/bin/Debug/net6.0/Impentation.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/bin/Debug/net6.0/Impentation.pdb
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.csproj.AssemblyReference.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.AssemblyInfoInputs.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.AssemblyInfo.cs
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.csproj.CoreCompileInputs.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/refint/Impentation.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.pdb
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/Impentation.genruntimeconfig.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Impentation/obj/Debug/net6.0/ref/Impentation.dll
