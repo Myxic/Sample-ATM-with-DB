@@ -1,7 +1,37 @@
 ﻿<Properties StartupConfiguration="{69963A27-865C-4509-98AB-9C93223CF867}|Default">
-  <MonoDevelop.Ide.ItemProperties.DataBase FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Impentation FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Impentation PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.ATMOperations FirstBuild="True" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.DataBase FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Language FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Language/IEnglish Impentation.cs">
+    <Files>
+      <File FileName="Impentation/Program.cs" />
+      <File FileName="Language/Model/LanguageInterface.cs" />
+      <File FileName="ATMOperations/TransferOperation.cs" />
+      <File FileName="ATMOperations/ViewBalance.cs" />
+      <File FileName="ATMOperations/WithdrawalOperation.cs" />
+      <File FileName="DataBase/Model/User.cs" />
+      <File FileName="DataBase/DataBaseCRUD.cs" />
+      <File FileName="Impentation/MenuClass.cs" />
+      <File FileName="ATMOperations/CreateAccount.cs" />
+      <File FileName="ATMOperations/Authentication.cs" />
+      <File FileName="Language/IEnglish Impentation.cs" Line="33" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Sample ATM with DB " expanded="True">
+            <Node name="Impentation" expanded="True" />
+            <Node name="Language" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>

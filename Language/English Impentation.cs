@@ -1,6 +1,7 @@
 ﻿using System;
 using DataBase.Model;
 using Language.Model;
+//using ATMOperations.Authentication;
 
 namespace Language
 {
@@ -9,7 +10,6 @@ namespace Language
         public IEnglishImpentation()
         {
         }
-
         public void BalanceQuestion()
         {
             throw new NotImplementedException();
@@ -24,12 +24,13 @@ namespace Language
 
         public void Menu(User user)
         {
-        start: Console.Write($@"Welcome {user.UserName.ToUpper()}\n
+        start: Console.Write($@"Welcome {user.Last_name.ToUpper()} {user.First_name.ToUpper()}\n
 1: View Balance
 2: Transfer
 3: Withdraw
 4: Change Pin
 =====>");
+            
             string input = Console.ReadLine();
             switch (input)
             {
@@ -55,7 +56,11 @@ namespace Language
 
         public void Verfication()
         {
-            throw new NotImplementedException();
+            Console.Write($"Enter your Card Number\n ====>");
+            string CardNo = Console.ReadLine();
+            //Authentication.CheckUser(CardNo);
+
+
         }
 
         public void WelcomeMessage()

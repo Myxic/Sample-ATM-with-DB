@@ -6,7 +6,7 @@ namespace Language.Model
 {
     public interface ILanguageInterface
     {
-        void Verfication();
+        void VerficationAsync();
         void WelcomeMessage();
         void Menu(User user);
         void TransferQuestion();
