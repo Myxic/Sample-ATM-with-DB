@@ -1,11 +1,18 @@
-﻿namespace Impentation;
+﻿using Language;
+using DataBase.Model;
+using ATMOperations;
+using DataBase;
+
+namespace Impentation;
 class Program
 {
-    static void Main(string[] args)
+    static async Task  Main(string[] args)
     {
-        LanguageOption();
+        await LanguageOption();
+        //return Task.CompletedTask;
     }
-    public static void LanguageOption()
+
+    public static async Task LanguageOption()
     {
        start: Console.Write(@"Choose your Language: using the numbers
                    1: English
@@ -18,6 +25,12 @@ class Program
         switch (Input??" ")
         {
             case "1":
+                //EnglishImpentation english = new EnglishImpentation();
+                //Task<User> task = english.VerficationAsync();
+                AuthenticationOperation hey = new AuthenticationOperation(new AtmDBContext());
+                var isUserValid = await hey.CheckUser("372301558363216");
+                Console.WriteLine(isUserValid.ToString());
+                var heyhgf = Console.ReadLine();
                 break;
             case "2":
                 break;

@@ -1,13 +1,17 @@
 ﻿using System;
 using DataBase.Model;
 using Language.Model;
-//using ATMOperations.Authentication;
+using ATMOperations;
+using System.Threading.Tasks;
+using DataBase;
 
 namespace Language
 {
-    public class IEnglishImpentation : ILanguageInterface
+    public class EnglishImpentation : ILanguageInterface
     {
-        public IEnglishImpentation()
+        private readonly object Authentication;
+
+        public EnglishImpentation()
         {
         }
         public void BalanceQuestion()
@@ -54,18 +58,41 @@ namespace Language
             throw new NotImplementedException();
         }
 
-        public void Verfication()
+        public  async Task<User> VerficationAsync()
         {
-            Console.Write($"Enter your Card Number\n ====>");
+            AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
+            start:  Console.Write($"Enter your Card Number\n ====>");
             string CardNo = Console.ReadLine();
-            //Authentication.CheckUser(CardNo);
-
+            Task<bool> CheckingUser = login.CheckUser(CardNo);
+           
+            //string CheckUser = CheckingUser.ToString();
+            //Console.WriteLine(CheckUser);
+            switch (CheckingUser.ToString())
+            {
+                case "true":
+                    Console.Write(($"Enter your Card Pin\n ====>"));
+                    string Pin = Console.ReadLine();
+                    switch (await login.CheckPin(Pin, CardNo))
+                    {
+                        case true:
+                            return await login.GetUserDetails(CardNo);
+                        default:
+                            break;
+                    }
+                    return await login.GetUserDetails(CardNo);
+                default:
+                    //Console.Clear();
+                    Console.WriteLine(CheckingUser);
+                    Console.WriteLine($"{CardNo} is an invalid Card Number");
+                    goto start;
+                    
+            }
 
         }
 
         public void WelcomeMessage()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void WithdrawalQuestion()

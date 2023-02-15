@@ -1,0 +1,10 @@
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/bin/Debug/netstandard2.1/DataBase.deps.json
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/bin/Debug/netstandard2.1/DataBase.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/bin/Debug/netstandard2.1/DataBase.pdb
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.csproj.AssemblyReference.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.AssemblyInfoInputs.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.AssemblyInfo.cs
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.csproj.CoreCompileInputs.cache
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/obj/Debug/netstandard2.1/DataBase.pdb

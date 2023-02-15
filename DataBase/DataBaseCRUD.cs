@@ -27,8 +27,8 @@ namespace DataBase
 
 
             string insertQuery =
-                $"INSERT INTO ATMDB (First_name, Last_name, UserName, Gender, Card_No, Balance, Pin_No, Phone_Number)" +
-                $" VALUES (@First_name, @Last_name, @UserName, @Gender, @Card_No, @Balance, @Pin_No, @Phone_Number); SELECT CAST(SCOPE_IDENTITY() AS BIGINT)";
+                $@"INSERT INTO ATMDB (First_name, Last_name, UserName, Gender, Card_No, Balance, Pin_No, Phone_Number)
+                 VALUES (@First_name, @Last_name, @UserName, @Gender, @Card_No, @Balance, @Pin_No, @Phone_Number); SELECT CAST(SCOPE_IDENTITY() AS BIGINT)";
 
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);

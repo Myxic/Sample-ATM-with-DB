@@ -7,34 +7,35 @@ using System.Data;
 
 namespace ATMOperations
 {
-    public class Authentication
+    public class AuthenticationOperation
     {
 
-        private readonly AtmDBContext _dbContext;
+        private  readonly AtmDBContext _dbContext;
         private bool _disposed;
 
-        public Authentication(AtmDBContext dbContext)
+        public AuthenticationOperation(AtmDBContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public static async Task<bool> CheckUser(string Card_No)
+       
+        public async Task<bool> CheckUser(string Card_No)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = $"SELECT *  FROM ATMDB  WHERE Card_No = {Card_No} ";
+            string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE Card_No = '{Card_No}' ";
 
             await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
-
-            switch (getUserQuery)
-            {
-                case null:
-                    return false;
-                case " ":
-                    return false;
-                default:
-                    return true;
-            }
-
+            Console.WriteLine(getUserQuery.ToString());
+            //switch (getUserQuery.ToString())
+            //{
+            //    case null:
+            //        return false;
+            //    case " ":
+            //        return false;
+            //    //default:
+            //    //    return true;
+            //}
+            return true;
         }
 
         public async Task<bool> CheckPin(string Pin, string Card_No)
@@ -45,6 +46,7 @@ namespace ATMOperations
 
             return (getUserQuery == Pin) ? true : false;
         }
+
         public async Task<User> GetUserDetails(string Card_No)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();

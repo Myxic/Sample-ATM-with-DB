@@ -145,6 +145,12 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATMOperations/ATMOperations.csproj": {
+                "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATMOperations/ATMOperations.csproj"
+              },
+              "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/DataBase.csproj": {
+                "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/DataBase.csproj"
+              },
               "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/Language.csproj": {
                 "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/Language.csproj"
               }

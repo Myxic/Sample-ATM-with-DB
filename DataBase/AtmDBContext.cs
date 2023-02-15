@@ -14,7 +14,7 @@ namespace DataBase
 
         private SqlConnection _dbConnection = null;
 
-        public AtmDBContext() : this(@"Data Source=., 1433;User Id=sa; Password=Strong.Pwd-123; Initial Catalog=ATMDATABASE; Encrypt=False;Integrated Security=True; TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        public AtmDBContext() : this(@"Data Source = .,1433;User Id=sa; Password=Strong.Pwd-123; Initial Catalog=ATMDATABASE; Encrypt=False;Integrated Security=True; TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
 
         }

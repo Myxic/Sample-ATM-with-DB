@@ -9,5 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Language\Language.csproj" />
+    <ProjectReference Include="..\DataBase\DataBase.csproj" />
+    <ProjectReference Include="..\ATMOperations\ATMOperations.csproj" />
   </ItemGroup>
 </Project>
