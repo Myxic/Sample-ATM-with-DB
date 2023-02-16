@@ -21,20 +21,28 @@ namespace ATMOperations
        
         public async Task<bool> CheckUser(string Card_No)
         {
-            SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE Card_No = '{Card_No}' ";
+           
+            try
+            {
+                //SqlConnection sqlConn = await _dbContext.OpenConnection();
+                //string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE Card_No = '{Card_No}' ";
 
-            await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
-            Console.WriteLine(getUserQuery.ToString());
-            //switch (getUserQuery.ToString())
-            //{
-            //    case null:
-            //        return false;
-            //    case " ":
-            //        return false;
-            //    //default:
-            //    //    return true;
-            //}
+                //await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
+                //Console.WriteLine(getUserQuery.ToString());
+                //switch (getUserQuery.ToString())
+                //{
+                //    case null:
+                //        return false;
+                //    case " ":
+                //        return false;
+                //    default:
+                //        return true;
+                //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return true;
         }
 

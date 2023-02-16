@@ -25,12 +25,12 @@ class Program
         switch (Input??" ")
         {
             case "1":
-                //EnglishImpentation english = new EnglishImpentation();
-                //Task<User> task = english.VerficationAsync();
-                AuthenticationOperation hey = new AuthenticationOperation(new AtmDBContext());
-                var isUserValid = await hey.CheckUser("372301558363216");
-                Console.WriteLine(isUserValid.ToString());
-                var heyhgf = Console.ReadLine();
+                EnglishImpentation english = new EnglishImpentation();
+                await english.VerficationAsync();
+                //AuthenticationOperation hey = new AuthenticationOperation(new AtmDBContext());
+                //var isUserValid = await hey.CheckUser("372301558363216");
+                //Console.WriteLine(isUserValid.ToString());
+                //var heyhgf = Console.ReadLine();
                 break;
             case "2":
                 break;

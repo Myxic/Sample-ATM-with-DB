@@ -63,13 +63,13 @@ namespace Language
             AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
             start:  Console.Write($"Enter your Card Number\n ====>");
             string CardNo = Console.ReadLine();
-            Task<bool> CheckingUser = login.CheckUser(CardNo);
+        
            
             //string CheckUser = CheckingUser.ToString();
             //Console.WriteLine(CheckUser);
-            switch (CheckingUser.ToString())
+            switch (await login.CheckUser(CardNo))
             {
-                case "true":
+                case true:
                     Console.Write(($"Enter your Card Pin\n ====>"));
                     string Pin = Console.ReadLine();
                     switch (await login.CheckPin(Pin, CardNo))
@@ -82,7 +82,7 @@ namespace Language
                     return await login.GetUserDetails(CardNo);
                 default:
                     //Console.Clear();
-                    Console.WriteLine(CheckingUser);
+                    Console.WriteLine(await login.CheckUser(CardNo));
                     Console.WriteLine($"{CardNo} is an invalid Card Number");
                     goto start;
                     
