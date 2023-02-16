@@ -66,10 +66,7 @@ namespace Language
             AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
             start:  Console.Write($"Enter your Card Number\n ====>");
             string CardNo = Console.ReadLine();
-        
-           
-            //string CheckUser = CheckingUser.ToString();
-            //Console.WriteLine(CheckUser);
+               
             switch (await login.CheckUser(CardNo))
             {
                 case true:

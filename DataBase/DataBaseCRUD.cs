@@ -115,7 +115,7 @@ namespace DataBase
 
         }
 
-        public async Task<bool> UpdateUser(int userId, User user)
+        public async Task<bool> UpdateUser(string UserName, User user)
         {
 
             SqlConnection sqlConn = await _dbContext.OpenConnection();
@@ -123,7 +123,7 @@ namespace DataBase
 
 
             string insertQuery =
-                $"UPDATE ATMDB SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE id = @id ";
+                $"UPDATE ATMDB SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE UserName = @UserName ";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -196,8 +196,8 @@ namespace DataBase
                 },
                 new SqlParameter
                 {
-                    ParameterName = "@id",
-                    Value = userId,
+                    ParameterName = "@UserName",
+                    Value = UserName,
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
                     Size = 50

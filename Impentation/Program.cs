@@ -21,12 +21,13 @@ class Program
 ==>  ");
 
         string? Input = Console.ReadLine();
-
+        Console.Clear();
         switch (Input??" ")
         {
             case "1":
                 EnglishImpentation english = new EnglishImpentation();
                 User user = await english.VerficationAsync();
+                Console.Clear();
                 await english.Menu(user);
                 break;
             case "2":

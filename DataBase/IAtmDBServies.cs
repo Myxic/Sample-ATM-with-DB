@@ -10,11 +10,11 @@ namespace DataBase
     {
         Task<long> CreateUser(User user);
 
-        Task<bool> UpdateUser(int userId, User user);
+        Task<bool> UpdateUser(string UserName, User user);
 
         Task<bool> DeleteUser(int id);
 
-        Task<User> GetUser(int id);
+        Task<User> GetUser(string UserName);
 
         Task<IEnumerable<User>> GetUsers();
     }
