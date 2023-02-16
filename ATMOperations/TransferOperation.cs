@@ -71,7 +71,7 @@ namespace ATMOperations
             } 
 	    }
 
-        public static decimal Transation(decimal CashtoTransfer, User user)
+        public decimal Transation(decimal CashtoTransfer, User user)
         {
            
                 if (CashtoTransfer > 0 && CashtoTransfer! < user.Balance)
@@ -115,6 +115,8 @@ namespace ATMOperations
 
             return (result == 0) ? false : true;
         }
+
+
 
 
 }
