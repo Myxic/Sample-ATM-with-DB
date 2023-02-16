@@ -24,26 +24,27 @@ namespace ATMOperations
            
             try
             {
-                //SqlConnection sqlConn = await _dbContext.OpenConnection();
-                //string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE Card_No = '{Card_No}' ";
+                SqlConnection sqlConn = await _dbContext.OpenConnection();
+                string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE Card_No = '{Card_No}' ";
 
-                //await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
+                await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
                 //Console.WriteLine(getUserQuery.ToString());
-                //switch (getUserQuery.ToString())
-                //{
-                //    case null:
-                //        return false;
-                //    case " ":
-                //        return false;
-                //    default:
-                //        return true;
-                //}
+                switch (getUserQuery.ToString())
+                {
+                    case null:
+                        return false;
+                    case " ":
+                        return false;
+                    default:
+                        return true;
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
             }
-            return true;
+            
         }
 
         public async Task<bool> CheckPin(string Pin, string Card_No)

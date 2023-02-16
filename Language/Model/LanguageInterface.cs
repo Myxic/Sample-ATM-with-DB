@@ -9,10 +9,10 @@ namespace Language.Model
     {
         Task<User> VerficationAsync();
         void WelcomeMessage();
-        void Menu(User user);
-        void TransferQuestion();
-        void WithdrawalQuestion();
-        void BalanceQuestion();
+        Task Menu(User user);
+        void Transfer();
+        void Withdrawal();
+        Task BalanceAsync(string UserName);
         void FailedTransation();
     }
 }

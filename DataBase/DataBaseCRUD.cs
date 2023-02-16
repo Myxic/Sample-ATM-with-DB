@@ -238,17 +238,17 @@ namespace DataBase
 
         }
 
-        public async Task<User> GetUser(int id)
+        public async Task<User> GetUser(string UserName)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = $"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE id = @id ";
+            string getUserQuery = $"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE UserName = @UserName ";
             await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
             command.Parameters.AddRange(new SqlParameter[]
             {
                 new SqlParameter
                 {
-                    ParameterName = "@id",
-                    Value = id,
+                    ParameterName = "@UserName",
+                    Value = UserName,
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
                     Size = 50

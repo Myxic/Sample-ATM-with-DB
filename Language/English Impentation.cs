@@ -14,9 +14,11 @@ namespace Language
         public EnglishImpentation()
         {
         }
-        public void BalanceQuestion()
+        public async Task BalanceAsync(string UserName)
         {
-            throw new NotImplementedException();
+            DataBaseCRUD Userdata = new DataBaseCRUD(new AtmDBContext());
+            var user = await Userdata.GetUser(UserName);
+            Console.WriteLine(user.Balance);
         }
 
         public void FailedTransation()
@@ -26,7 +28,7 @@ namespace Language
 
        
 
-        public void Menu(User user)
+        public async Task Menu(User user)
         {
         start: Console.Write($@"Welcome {user.Last_name.ToUpper()} {user.First_name.ToUpper()}\n
 1: View Balance
@@ -39,6 +41,7 @@ namespace Language
             switch (input)
             {
                 case "1":
+                    await BalanceAsync(user.UserName);
                     break;
                 case "2":
                     break;
@@ -53,7 +56,7 @@ namespace Language
             }
         }
 
-        public void TransferQuestion()
+        public void Transfer()
         {
             throw new NotImplementedException();
         }
@@ -81,8 +84,7 @@ namespace Language
                     }
                     return await login.GetUserDetails(CardNo);
                 default:
-                    //Console.Clear();
-                    Console.WriteLine(await login.CheckUser(CardNo));
+                    Console.Clear();
                     Console.WriteLine($"{CardNo} is an invalid Card Number");
                     goto start;
                     
@@ -95,7 +97,7 @@ namespace Language
             
         }
 
-        public void WithdrawalQuestion()
+        public void Withdrawal()
         {
             throw new NotImplementedException();
         }
