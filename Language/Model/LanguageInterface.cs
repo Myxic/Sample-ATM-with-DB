@@ -10,7 +10,7 @@ namespace Language.Model
         Task<User> VerficationAsync();
         void WelcomeMessage();
         Task Menu(User user);
-        Task<string> Transfer(User user)
+        Task<string> Transfer(User user);
         Task<string> Withdrawal(User user);
         Task BalanceAsync(string UserName);
         void FailedTransation();

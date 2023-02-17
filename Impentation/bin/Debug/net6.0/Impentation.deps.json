@@ -10,7 +10,8 @@
         "dependencies": {
           "ATMOperations": "1.0.0",
           "DataBase": "1.0.0",
-          "Language": "1.0.0"
+          "Language": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.1.0"
         },
         "runtime": {
           "Impentation.dll": {}
@@ -408,7 +409,8 @@
       },
       "ATMOperations/1.0.0": {
         "dependencies": {
-          "DataBase": "1.0.0"
+          "DataBase": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.1.0"
         },
         "runtime": {
           "ATMOperations.dll": {}
@@ -425,7 +427,8 @@
       "Language/1.0.0": {
         "dependencies": {
           "ATMOperations": "1.0.0",
-          "DataBase": "1.0.0"
+          "DataBase": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.1.0"
         },
         "runtime": {
           "Language.dll": {}

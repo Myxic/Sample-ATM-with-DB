@@ -43,7 +43,7 @@ namespace ATMOperations
             try
             {
                 SqlConnection sqlConn = await _dbContext.OpenConnection();
-                string getUserQuery = @$"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE UserName = {UserName} "; ;
+                string getUserQuery = @$"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE UserName = '{UserName}' "; ;
 
                 await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
                 User reveiver = new User();
@@ -93,7 +93,7 @@ namespace ATMOperations
 
 
             string insertQuery =
-                $"UPDATE ATMDB SET = Balance = {(int)RemainingCash}, WHERE UserName = {user.UserName} ";
+                $"UPDATE ATMDB SET = Balance = {(int)RemainingCash}, WHERE UserName = '{user.UserName}' ";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -107,7 +107,7 @@ namespace ATMOperations
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
             string insertQuery =
-                $"UPDATE ATMDB SET = Balance = {receiver.Balance + (int)CashTransfer}, WHERE UserName = {receiver.UserName} ";
+                $"UPDATE ATMDB SET = Balance = {receiver.Balance + (int)CashTransfer}, WHERE UserName = '{receiver.UserName}' ";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 

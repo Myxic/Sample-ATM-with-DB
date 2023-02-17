@@ -30,7 +30,7 @@ namespace Language
 
         public async Task Menu(User user)
         {
-        start: Console.Write($@"Welcome {user.Last_name.ToUpper()} {user.First_name.ToUpper()}\n
+        start: Console.Write($@"Welcome {user.Last_name.ToUpper()} {user.First_name.ToUpper()}
 1: View Balance
 2: Transfer
 3: Withdraw
@@ -62,7 +62,7 @@ namespace Language
         public async Task<string> Transfer(User user)
         {
         start:    Console.Write("Enter Amount to Transfer\n ====>");
-            var Amount = Console.ReadLine;
+            string Amount = Console.ReadLine();
 
             try
             {
@@ -111,7 +111,8 @@ namespace Language
                     }
                     return await login.GetUserDetails(CardNo);
                 default:
-                    Console.Clear();
+                    //Console.Clear();
+                    Console.WriteLine(await login.CheckUser(CardNo));
                     Console.WriteLine($"{CardNo} is an invalid Card Number");
                     goto start;
                     
@@ -127,7 +128,7 @@ namespace Language
         public async Task<string> Withdrawal(User user)
         {
             Console.Write("Enter Amount to withdraw\n ====>");
-            var Amount = Console.ReadLine;
+            string Amount = Console.ReadLine();
 
             try
             {

@@ -716,7 +716,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "DataBase": "1.0.0"
+          "DataBase": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.1.0"
         },
         "compile": {
           "bin/placeholder/ATMOperations.dll": {}
@@ -743,7 +744,8 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "ATMOperations": "1.0.0",
-          "DataBase": "1.0.0"
+          "DataBase": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.1.0"
         },
         "compile": {
           "bin/placeholder/Language.dll": {}
@@ -2056,7 +2058,8 @@
     "net6.0": [
       "ATMOperations >= 1.0.0",
       "DataBase >= 1.0.0",
-      "Language >= 1.0.0"
+      "Language >= 1.0.0",
+      "Microsoft.Data.SqlClient >= 5.1.0"
     ]
   },
   "packageFolders": {
@@ -2106,6 +2109,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": {
+            "target": "Package",
+            "version": "[5.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

@@ -15,13 +15,13 @@ namespace DataBase
 
         private SqlConnection _dbConnection = null;
 
-        //public AtmDBContext() : this(@"Data Source = localhost,1433;User Id=sa; Password=Strong.Pwd-123; Initial Catalog=ATMDATABASE; Encrypt=False;Integrated Security=True; TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        //{
-            
+        public AtmDBContext() : this(@"Data Source = localhost,1433;User Id=sa;Password=Strong.Pwd-123;Initial Catalog=ATMDATABASE;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        {
+
+        }
+        //   public AtmDBContext() : this(@"data source = dd0ce83250fd; initial catalog = ATMDATABASE; user id = sa; password = &lt; &lt; YourPassword & gt; &gt;")
+        //   { 
         //}
-        public AtmDBContext() : this(@"data source = dd0ce83250fd; initial catalog = ATMDATABASE; user id = sa; password = &lt; &lt; YourPassword & gt; &gt;")
-        { 
-	    }
         public AtmDBContext(string connString)
         {
             _connString = connString;
