@@ -33,7 +33,7 @@ namespace ATMOperations
        }
         public decimal GetUserBalance(User user)
         {
-            decimal Balance = (decimal)user.Balance;
+            decimal Balance = Convert.ToDecimal(user.Balance);
 
             return Balance;
 	    }
@@ -55,8 +55,8 @@ namespace ATMOperations
                         reveiver.Last_name = dataReader["Last_name"].ToString();
                         reveiver.UserName = dataReader["UserName"].ToString();
                         reveiver.Gender = dataReader["Card_No"].ToString();
-                        reveiver.Balance = (int)dataReader["Balance"];
-                        reveiver.Pin_No = (int)dataReader["Pin_No"];
+                        reveiver.Balance = dataReader["Balance"].ToString();
+                        reveiver.Pin_No =  dataReader["Pin_No"].ToString();
                         reveiver.Phone_Number = dataReader["Phone_Number"].ToString();
                     }
                 }
@@ -74,9 +74,9 @@ namespace ATMOperations
         public decimal Transation(decimal CashtoTransfer, User user)
         {
            
-                if (CashtoTransfer > 0 && CashtoTransfer! < user.Balance)
+                if (CashtoTransfer > 0 && CashtoTransfer! < Convert.ToDecimal(user.Balance))
                 {
-                    decimal RemainingCash = (user.Balance - CashtoTransfer);
+                    decimal RemainingCash = (Convert.ToDecimal(user.Balance) - CashtoTransfer);
                     return RemainingCash;
                 }
                 else

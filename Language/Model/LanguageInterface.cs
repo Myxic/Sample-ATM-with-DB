@@ -8,7 +8,6 @@ namespace Language.Model
     public interface ILanguageInterface
     {
         Task<User> VerficationAsync();
-        void WelcomeMessage();
         Task Menu(User user);
         Task<string> Transfer(User user);
         Task<string> Withdrawal(User user);

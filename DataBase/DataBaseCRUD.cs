@@ -262,9 +262,10 @@ namespace DataBase
                     user.First_name = dataReader["First_name"].ToString();
                     user.Last_name = dataReader["Last_name"].ToString();
                     user.UserName = dataReader["UserName"].ToString();
-                    user.Gender = dataReader["Card_No"].ToString();
-                    user.Balance = (int)dataReader["Balance"];
-                    user.Pin_No = (int)dataReader["Pin_No"];
+                    user.Card_No = dataReader["CardNo"].ToString();
+                    user.Gender = dataReader["Gender"].ToString();
+                    user.Balance = dataReader["Balance"].ToString();
+                    user.Pin_No = dataReader["Pin_No"].ToString();
                     user.Phone_Number = dataReader["Phone_Number"].ToString();
                 }
             }
@@ -290,8 +291,8 @@ namespace DataBase
                             Last_name = dataReader["Last_name"].ToString(),
                             UserName = dataReader["UserName"].ToString(),
                             Gender = dataReader["Card_No"].ToString(),
-                            Balance = (int)dataReader["Balance"],
-                            Pin_No = (int)dataReader["Pin_No"],
+                            Balance = dataReader["Balance"].ToString(),
+                            Pin_No = dataReader["Pin_No"].ToString(),
                             Phone_Number = dataReader["Phone_Number"].ToString()
                             
                         }

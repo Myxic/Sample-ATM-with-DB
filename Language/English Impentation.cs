@@ -14,19 +14,6 @@ namespace Language
         public EnglishImpentation()
         {
         }
-        public async Task BalanceAsync(string UserName)
-        {
-            DataBaseCRUD Userdata = new DataBaseCRUD(new AtmDBContext());
-            var user = await Userdata.GetUser(UserName);
-            Console.WriteLine(user.Balance);
-        }
-
-        public void FailedTransation()
-        {
-            throw new NotImplementedException();
-        }
-
-       
 
         public async Task Menu(User user)
         {
@@ -36,7 +23,7 @@ namespace Language
 3: Withdraw
 4: Change Pin
 =====>");
-            
+
             string input = Console.ReadLine();
             switch (input)
             {
@@ -59,6 +46,69 @@ namespace Language
             }
         }
 
+          public  async Task<User> VerficationAsync()
+        {
+            AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
+            start:  Console.Write($"Enter your Card Number\n ====>");
+            string CardNo = Console.ReadLine();
+            
+
+            switch (await login.CheckUser(CardNo))
+            {
+                case true:
+                    Console.Write(($"Enter your Card Pin\n ====>"));
+                    string Pin = Console.ReadLine();
+                    switch (await login.CheckPin(Pin, CardNo))
+                    {
+                        case true:
+                        try
+                        {
+                             return await login.GetUserDetails(CardNo);
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Console.WriteLine(await login.GetUserDetails(CardNo) );
+                            Console.WriteLine( ex.Message);
+                            goto start;
+                        }
+                           
+                        default:
+                            goto start;
+                    }
+                    
+                default:
+                    Console.Clear();
+                    Console.WriteLine($"{CardNo} is an invalid Card Number");
+                    goto start;
+                    
+            }
+
+        }
+
+        public async Task BalanceAsync(string UserName)
+        {
+            try
+            {
+                 DataBaseCRUD Userdata = new DataBaseCRUD(new AtmDBContext());
+                 User user = await Userdata.GetUser(UserName);
+                 Console.WriteLine( Operation.GetUserBalance(user));
+            }
+            catch (Exception ex)
+            {
+                Console.Clear();
+                Console.WriteLine( ex.Message);
+            }
+           
+        }
+
+        public void FailedTransation()
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+       
         public async Task<string> Transfer(User user)
         {
         start:    Console.Write("Enter Amount to Transfer\n ====>");
@@ -91,39 +141,8 @@ namespace Language
             }
         }
 
-        public  async Task<User> VerficationAsync()
-        {
-            AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
-            start:  Console.Write($"Enter your Card Number\n ====>");
-            string CardNo = Console.ReadLine();
-               
-            switch (await login.CheckUser(CardNo))
-            {
-                case true:
-                    Console.Write(($"Enter your Card Pin\n ====>"));
-                    string Pin = Console.ReadLine();
-                    switch (await login.CheckPin(Pin, CardNo))
-                    {
-                        case true:
-                            return await login.GetUserDetails(CardNo);
-                        default:
-                            break;
-                    }
-                    return await login.GetUserDetails(CardNo);
-                default:
-                    //Console.Clear();
-                    Console.WriteLine(await login.CheckUser(CardNo));
-                    Console.WriteLine($"{CardNo} is an invalid Card Number");
-                    goto start;
-                    
-            }
-
-        }
-
-        public void WelcomeMessage()
-        {
-            
-        }
+      
+       
 
         public async Task<string> Withdrawal(User user)
         {
