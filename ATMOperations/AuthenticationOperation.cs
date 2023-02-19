@@ -90,7 +90,7 @@ namespace ATMOperations
         public async Task<User> GetUserDetails(string Card_No)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = $"SELECT ATMDB.id, ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE Card_No = {Card_No} ";
+            string getUserQuery = $"SELECT ATMDB.id, ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE Card_No = '{Card_No}' ";
             await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
             
             User user = new User();

@@ -249,7 +249,7 @@ namespace DataBase
                 {
                     ParameterName = "@UserName",
                     Value = UserName,
-                    SqlDbType = SqlDbType.Int,
+                    SqlDbType = SqlDbType.VarChar,
                     Direction = ParameterDirection.Input,
                     Size = 50
                 }
@@ -262,7 +262,7 @@ namespace DataBase
                     user.First_name = dataReader["First_name"].ToString();
                     user.Last_name = dataReader["Last_name"].ToString();
                     user.UserName = dataReader["UserName"].ToString();
-                    user.Card_No = dataReader["CardNo"].ToString();
+                    user.Card_No = dataReader["Card_No"].ToString();
                     user.Gender = dataReader["Gender"].ToString();
                     user.Balance = dataReader["Balance"].ToString();
                     user.Pin_No = dataReader["Pin_No"].ToString();

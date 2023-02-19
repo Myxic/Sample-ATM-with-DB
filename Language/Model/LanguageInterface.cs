@@ -12,7 +12,6 @@ namespace Language.Model
         Task<string> Transfer(User user);
         Task<string> Withdrawal(User user);
         Task BalanceAsync(string UserName);
-        void FailedTransation();
     }
 }
 

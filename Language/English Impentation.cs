@@ -22,20 +22,23 @@ namespace Language
 2: Transfer
 3: Withdraw
 4: Change Pin
-=====>");
+=====> ");
 
             string input = Console.ReadLine();
             switch (input)
             {
                 case "1":
                     await BalanceAsync(user.UserName);
+                    await ReturnToMenu(user);
                     break;
                 case "2":
                     Console.WriteLine(await Transfer(user));
+                    await ReturnToMenu(user);
 
                     break;
                 case "3":
                     Console.WriteLine(await Withdrawal(user));
+                    await ReturnToMenu(user);
                     break;
                 case "4":
                     break;
@@ -46,17 +49,18 @@ namespace Language
             }
         }
 
+
           public  async Task<User> VerficationAsync()
         {
             AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
-            start:  Console.Write($"Enter your Card Number\n ====>");
+            start:  Console.Write($"Enter your Card Number\n ====> ");
             string CardNo = Console.ReadLine();
             
 
             switch (await login.CheckUser(CardNo))
             {
                 case true:
-                    Console.Write(($"Enter your Card Pin\n ====>"));
+                    Console.Write(($"Enter your Card Pin\n ====> "));
                     string Pin = Console.ReadLine();
                     switch (await login.CheckPin(Pin, CardNo))
                     {
@@ -87,47 +91,52 @@ namespace Language
 
         public async Task BalanceAsync(string UserName)
         {
+            Console.Clear();
             try
             {
-                 DataBaseCRUD Userdata = new DataBaseCRUD(new AtmDBContext());
-                 User user = await Userdata.GetUser(UserName);
-                 Console.WriteLine( Operation.GetUserBalance(user));
+                DataBaseCRUD Userdata = new DataBaseCRUD(new AtmDBContext());
+                User user = await Userdata.GetUser(UserName);
+                decimal Balance = Operation.GetUserBalance(user);
+                Console.WriteLine($"Your Balance is ₦{Balance}.");
+               
             }
             catch (Exception ex)
             {
                 Console.Clear();
-                Console.WriteLine( ex.Message);
+               
+                Console.WriteLine($"{ex.Message}" );
             }
            
         }
 
-        public void FailedTransation()
-        {
-            throw new NotImplementedException();
-        }
 
        
 
        
         public async Task<string> Transfer(User user)
         {
-        start:    Console.Write("Enter Amount to Transfer\n ====>");
+            Console.Clear();
+        start:    Console.Write("Enter Amount to Transfer\n ====> ");
             string Amount = Console.ReadLine();
 
             try
             {
                 decimal CashTransfered = Convert.ToDecimal(Amount);
                 
-                Console.WriteLine("Enter UserName of the person you want to transfer to");
+                Console.Write("Enter UserName of the person you want to transfer to \n ==> ");
+
                 var receiver = Console.ReadLine();
+
                 User user1 = await Operation.GetUserDetails(receiver);
-                switch (await Operation.UpdateDB(user, Operation.Transation(Operation.GetUserBalance(user), user)))
+
+                switch (await Operation.UpdateDB(user, Operation.Transation (CashTransfered, user)))
                 {
                     case true:
                        await Operation.UpdateReceiver(user1, CashTransfered);
-                        return $"Tranfer of {CashTransfered} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} to {user1.Last_name} {user1.First_name} was successful\n New Balance is {user.Balance}";
+                        return $"Transfer of ₦{CashTransfered} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} to {user1.Last_name} {user1.First_name} was successful\n New Balance is  ₦{(await Operation.GetUserDetails(user.UserName)).Balance}";
                     default:
-                        return $"Tranfer of {CashTransfered} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} to {user1.Last_name} {user1.First_name} was unsuccessful\n New Balance is {user.Balance}";
+                        return $"Transfer of ₦{CashTransfered} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} to {user1.Last_name} {user1.First_name} was unsuccessful\n New Balance is  ₦{(await Operation.GetUserDetails(user.UserName)).Balance}";
+
 
 
                 }
@@ -146,7 +155,8 @@ namespace Language
 
         public async Task<string> Withdrawal(User user)
         {
-            Console.Write("Enter Amount to withdraw\n ====>");
+            Console.Clear();
+            Console.Write("Enter Amount to withdraw\n ====> ");
             string Amount = Console.ReadLine();
 
             try
@@ -154,12 +164,12 @@ namespace Language
                 decimal CashWithdrawal = Convert.ToDecimal(Amount);
 
                 
-                switch (await Operation.UpdateDB(user, Operation.Transation(Operation.GetUserBalance(user), user)))
+                switch (await Operation.UpdateDB(user, Operation.Transation(CashWithdrawal, user)))
                 {
                     case true:
-                        return $"Withdrawal of {CashWithdrawal} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} was successful\n New Balance is {user.Balance}";
+                        return $"Withdrawal of ₦{CashWithdrawal} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} was successful\n New Balance is  ₦{(await Operation.GetUserDetails(user.UserName)).Balance}";
                     default:
-                        return $"Withdrawal of {CashWithdrawal} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} was unsuccessful\n  Balance is {user.Balance}";
+                        return $"Withdrawal of ₦{CashWithdrawal} from {user.Last_name.ToUpper()} {user.First_name.ToUpper()} was unsuccessful\n  Balance is  ₦{(await Operation.GetUserDetails(user.UserName)).Balance}";
 
 
                 }
@@ -169,6 +179,13 @@ namespace Language
             {
                 return $"{ex.Message}";
             }
+        }
+        private async Task ReturnToMenu(User user)
+        {
+            Console.Write("\n\n Enter \" 0 \" to return to Menu \n ===> ");
+            string input = Console.ReadLine();
+            Console.Clear();
+            await Menu(user);
         }
     }
 }

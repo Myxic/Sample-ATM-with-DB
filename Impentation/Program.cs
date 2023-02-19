@@ -8,7 +8,15 @@ class Program
 {
     static async Task  Main(string[] args)
     {
-        await LanguageOption();
+       
+        try
+        {
+            await LanguageOption();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"{ex.Message} at {ex.Source}, {ex.TargetSite}");
+        }
         
     }
 
