@@ -89,7 +89,7 @@ namespace ATMOperations
         public async Task<bool> UpdateDB(User user, decimal RemainingCash)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-     string insertQuery = $"UPDATE ATMDB SET Balance = {(int)RemainingCash} WHERE UserName = '{user.UserName}'";
+            string insertQuery = $"UPDATE ATMDB SET Balance = {(int)RemainingCash} WHERE UserName = '{user.UserName}'";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -103,7 +103,7 @@ namespace ATMOperations
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
             string insertQuery =
-                $"UPDATE ATMDB SET Balance = {(int)(Convert.ToDecimal(receiver.Balance)) + (int)CashTransfer} WHERE UserName = '{receiver.UserName}'";
+                $"UPDATE ATMDB SET Balance = {(int)((Convert.ToDecimal(receiver.Balance)) + CashTransfer)} WHERE UserName = '{receiver.UserName}'";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -112,7 +112,20 @@ namespace ATMOperations
             return (result == 0) ? false : true;
         }
 
-     
+        public async Task<bool> UpdatePinCode(User user, string Pin)
+        {
+            SqlConnection sqlConn = await _dbContext.OpenConnection();
+
+            string insertQuery =
+                $"UPDATE ATMDB SET Pin_No = {(int)(Convert.ToDecimal(Pin))} WHERE UserName = '{user.UserName}'";
+
+            await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
+
+            var result = command.ExecuteNonQuery();
+
+            return (result == 0) ? false : true;
+        }
+
     }
 }
 

@@ -5,50 +5,21 @@ using ATMOperations;
 using System.Threading.Tasks;
 using DataBase;
 
+
 namespace Language
 {
     public class EnglishImpentation : ILanguageInterface
     {
         private readonly object Authentication;
         TransferOperation Operation = new TransferOperation(new AtmDBContext());
+        AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
+        
+
         public EnglishImpentation()
         {
         }
 
-        public async Task Menu(User user)
-        {
-        start: Console.Write($@"Welcome {user.Last_name.ToUpper()} {user.First_name.ToUpper()}
-1: View Balance
-2: Transfer
-3: Withdraw
-4: Change Pin
-=====> ");
-
-            string input = Console.ReadLine();
-            switch (input)
-            {
-                case "1":
-                    await BalanceAsync(user.UserName);
-                    await ReturnToMenu(user);
-                    break;
-                case "2":
-                    Console.WriteLine(await Transfer(user));
-                    await ReturnToMenu(user);
-
-                    break;
-                case "3":
-                    Console.WriteLine(await Withdrawal(user));
-                    await ReturnToMenu(user);
-                    break;
-                case "4":
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine($"{input} is an invalid input");
-                    goto start;
-            }
-        }
-
+   
 
           public  async Task<User> VerficationAsync()
         {
@@ -71,7 +42,6 @@ namespace Language
                         }
                         catch (Exception ex)
                         {
-                            System.Console.WriteLine(await login.GetUserDetails(CardNo) );
                             Console.WriteLine( ex.Message);
                             goto start;
                         }
@@ -180,12 +150,41 @@ namespace Language
                 return $"{ex.Message}";
             }
         }
-        private async Task ReturnToMenu(User user)
+       
+
+        public async Task ChangePin(User user)
         {
-            Console.Write("\n\n Enter \" 0 \" to return to Menu \n ===> ");
-            string input = Console.ReadLine();
-            Console.Clear();
-            await Menu(user);
+            start: Console.Write(($"Enter your Current Card Pin\n ====> "));
+            string Pin = Console.ReadLine();
+            switch (await login.CheckPin(Pin, user.Card_No))
+            {
+               
+                case true:
+                    try
+                    { 
+                         Console.Write(($"Enter your New Card Pin\n ====> "));
+                         string NewPin = Console.ReadLine();
+                    
+                        switch(await Operation.UpdatePinCode(user, NewPin))
+                        {
+                            case true:
+                                Console.WriteLine($"Change of PinCode of Account belonging to {user.Last_name} {user.First_name} from {Pin} to {(await login.GetUserDetails(user.Card_No)).Pin_No} was successful");
+                                break;
+                            default:
+                                Console.WriteLine($"Change of PinCode of Account belonging to {user.Last_name} {user.First_name} from {Pin} to {NewPin} was unsuccessful");
+                                break;
+			            }
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        goto start;
+                    }
+            
+                default:
+                    goto start;
+            }
         }
     }
 }
