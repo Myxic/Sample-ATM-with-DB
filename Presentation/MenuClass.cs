@@ -188,6 +188,7 @@ namespace Presentation
                     await ReturnToMenu();
                     break;
                 case "2":
+                    await admin.EditAccountAsync();
                     await ReturnToMenu();
                     break;
                 case "3":
