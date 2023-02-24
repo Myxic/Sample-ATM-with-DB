@@ -19,9 +19,7 @@ namespace DataBase
         {
 
         }
-        //   public AtmDBContext() : this(@"data source = dd0ce83250fd; initial catalog = ATMDATABASE; user id = sa; password = &lt; &lt; YourPassword & gt; &gt;")
-        //   { 
-        //}
+      
         public AtmDBContext(string connString)
         {
             _connString = connString;

@@ -1,7 +1,7 @@
 ﻿using System;
 using DataBase.Model;
 using Language.Model;
-using ATMOperations;
+using ATMSystem;
 using System.Threading.Tasks;
 using DataBase;
 
@@ -10,16 +10,10 @@ namespace Language
 {
     public class EnglishImpentation : ILanguageInterface
     {
-        private readonly object Authentication;
-        TransferOperation Operation = new TransferOperation(new AtmDBContext());
+        //private readonly object? Authentication;
+        ATMUsersOperations Operation = new ATMUsersOperations(new AtmDBContext());
         AuthenticationOperation login = new AuthenticationOperation(new AtmDBContext());
         
-
-        public EnglishImpentation()
-        {
-        }
-
-   
 
           public  async Task<User> VerficationAsync()
         {
@@ -59,6 +53,7 @@ namespace Language
 
         }
 
+
         public async Task BalanceAsync(string UserName)
         {
             Console.Clear();
@@ -79,8 +74,6 @@ namespace Language
            
         }
 
-
-       
 
        
         public async Task<string> Transfer(User user)
@@ -122,7 +115,6 @@ namespace Language
 
       
        
-
         public async Task<string> Withdrawal(User user)
         {
             Console.Clear();

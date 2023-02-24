@@ -12,7 +12,7 @@ namespace DataBase
 
         Task<bool> UpdateUser(string UserName, User user);
 
-        Task<bool> DeleteUser(int id);
+        Task<bool> DeleteUser(string Username);
 
         Task<User> GetUser(string UserName);
 

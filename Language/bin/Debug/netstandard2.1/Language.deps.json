@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.1/": {
       "Language/1.0.0": {
         "dependencies": {
-          "ATMOperations": "1.0.0",
+          "ATM": "1.0.0",
           "DataBase": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.0"
         },
@@ -470,13 +470,12 @@
           }
         }
       },
-      "ATMOperations/1.0.0": {
+      "ATM/1.0.0": {
         "dependencies": {
-          "DataBase": "1.0.0",
-          "Microsoft.Data.SqlClient": "5.1.0"
+          "DataBase": "1.0.0"
         },
         "runtime": {
-          "ATMOperations.dll": {}
+          "ATM.dll": {}
         }
       },
       "DataBase/1.0.0": {
@@ -796,7 +795,7 @@
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
-    "ATMOperations/1.0.0": {
+    "ATM/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

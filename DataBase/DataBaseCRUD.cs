@@ -79,7 +79,7 @@ namespace DataBase
                 new SqlParameter
                 {
                     ParameterName = "@Balance",
-                    Value = user.Balance,
+                    Value = Convert.ToInt32(user.Balance),
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
                     //Size = 50
@@ -87,7 +87,7 @@ namespace DataBase
                 new SqlParameter
                 {
                     ParameterName = "@Pin_No",
-                    Value = user.Pin_No,
+                    Value = Convert.ToInt32( user.Pin_No),
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
                     //Size = 50
@@ -115,7 +115,7 @@ namespace DataBase
 
         }
 
-        public async Task<bool> UpdateUser(string UserName, User user)
+        public async Task<bool> UpdateUser(string CardNo, User user)
         {
 
             SqlConnection sqlConn = await _dbContext.OpenConnection();
@@ -123,7 +123,7 @@ namespace DataBase
 
 
             string insertQuery =
-                $"UPDATE ATMDB SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE UserName = @UserName ";
+                $"UPDATE ATMDB SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE Card_No =  '{CardNo}' ";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -194,14 +194,14 @@ namespace DataBase
                     Direction = ParameterDirection.Input,
                     Size = 50
                 },
-                new SqlParameter
-                {
-                    ParameterName = "@UserName",
-                    Value = UserName,
-                    SqlDbType = SqlDbType.Int,
-                    Direction = ParameterDirection.Input,
-                    Size = 50
-                }
+                //new SqlParameter
+                //{
+                //    ParameterName = "@Card_No",
+                //    Value = CardNo,
+                //    SqlDbType = SqlDbType.Int,
+                //    Direction = ParameterDirection.Input,
+                //    Size = 50
+                //}
 
             });
 
@@ -211,20 +211,20 @@ namespace DataBase
 
         }
 
-        public async Task<bool> DeleteUser(int UserId)
+        public async Task<bool> DeleteUser(string UserName)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
-            string deleteQuery = $"DELETE FROM ATMDB WHERE id = @id ";
+            string deleteQuery = $"DELETE FROM ATMDB WHERE UserName = @UserName ";
             await using SqlCommand command = new SqlCommand(deleteQuery, sqlConn);
 
             command.Parameters.AddRange(new SqlParameter[]
             {
                 new SqlParameter
                 {
-                    ParameterName = "@id",
-                    Value = UserId,
-                    SqlDbType = SqlDbType.Int,
+                    ParameterName = "@UserName",
+                    Value = UserName,
+                    SqlDbType = SqlDbType.VarChar,
                     Direction = ParameterDirection.Input,
                     Size = 50
                 }

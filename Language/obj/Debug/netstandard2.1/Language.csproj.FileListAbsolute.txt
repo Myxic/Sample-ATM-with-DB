@@ -6,10 +6,10 @@
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/Language.deps.json
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/Language.dll
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/Language.pdb
-/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/ATMOperations.dll
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/ATM.dll
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/DataBase.dll
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/DataBase.pdb
-/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/ATMOperations.pdb
+/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/bin/Debug/netstandard2.1/ATM.pdb
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/obj/Debug/netstandard2.1/Language.csproj.CopyComplete
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/obj/Debug/netstandard2.1/Language.dll
 /Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/Language/obj/Debug/netstandard2.1/Language.pdb

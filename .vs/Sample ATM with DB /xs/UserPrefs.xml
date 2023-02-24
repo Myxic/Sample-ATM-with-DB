@@ -1,19 +1,18 @@
-﻿<Properties StartupConfiguration="{69963A27-865C-4509-98AB-9C93223CF867}|Default">
-  <MultiItemStartupConfigurations />
+﻿<Properties StartupConfiguration="{84DC07F0-9A09-4B3C-8969-BFDDB60335A8}|Default">
+  <MonoDevelop.Ide.ItemProperties.ATM FirstBuild="True" />
+  <DisabledProjects>
+    <String>ATMOperations/ATMOperations.csproj</String>
+    <String>Impentation/Impentation.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workbench ActiveDocument="Language/English Impentation.cs">
     <Files>
-      <File FileName="Impentation/Program.cs" Line="18" Column="76" />
-      <File FileName="Language/Model/LanguageInterface.cs" Line="14" Column="44" />
-      <File FileName="ATMOperations/TransferOperation.cs" Line="86" Column="1" />
-      <File FileName="ATMOperations/ViewBalance.cs" />
-      <File FileName="ATMOperations/WithdrawalOperation.cs" />
-      <File FileName="DataBase/Model/User.cs" />
-      <File FileName="DataBase/DataBaseCRUD.cs" Line="265" Column="53" />
-      <File FileName="Impentation/MenuClass.cs" />
-      <File FileName="Language/English Impentation.cs" Line="69" Column="26" />
-      <File FileName="ATMOperations/AuthenticationOperation.cs" Line="93" Column="211" />
-      <File FileName="DataBase/IAtmDBServies.cs" />
-      <File FileName="Language/IChinese Impentation.cs" />
+      <File FileName="Impentation/Program.cs" />
+      <File FileName="Language/Model/LanguageInterface.cs" />
+      <File FileName="ATMOperations/TransferOperation.cs" Line="14" Column="44" />
+      <File FileName="DataBase/DataBaseCRUD.cs" />
+      <File FileName="Impentation/MenuClass.cs" Line="54" Column="62" />
+      <File FileName="Language/English Impentation.cs" Line="4" Column="7" />
+      <File FileName="ATMOperations/AuthenticationOperation.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,17 +20,11 @@
           <Node name="Sample ATM with DB " expanded="True" />
         </State>
       </Pad>
-      <Pad Id="ClassPad">
-        <State name="__root__">
-          <Node name="Sample ATM with DB " expanded="True" selected="True" />
-        </State>
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Impentation PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Presentation FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
