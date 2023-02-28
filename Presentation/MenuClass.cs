@@ -184,14 +184,17 @@ namespace Presentation
             switch (input)
             {
                 case "1":
+                    Console.Clear();
                     await admin.CreateAccountAsync();
                     await ReturnToMenu();
                     break;
                 case "2":
+                    Console.Clear();
                     await admin.EditAccountAsync();
                     await ReturnToMenu();
                     break;
                 case "3":
+                    Console.Clear();
                     await admin.DeleteAccount();
                     await ReturnToMenu();
                     break;
