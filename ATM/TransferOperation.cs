@@ -43,7 +43,7 @@ namespace ATMSystem
             try
             {
                 SqlConnection sqlConn = await _dbContext.OpenConnection();
-                string getUserQuery = @$"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE UserName = '{UserName}' "; 
+                string getUserQuery = @$"SELECT CustomerTable.First_name, CustomerTable.Last_name, CustomerTable.UserName, CustomerTable.Gender, CustomerTable.Card_No, CustomerTable.Balance, CustomerTable.Pin_No, CustomerTable.Phone_Number FROM  CustomerTable WHERE UserName = '{UserName}' "; 
 
                 await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
                 User reveiver = new User();
@@ -90,7 +90,7 @@ namespace ATMSystem
         public async Task<bool> UpdateDB(User user, decimal RemainingCash)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string insertQuery = $"UPDATE ATMDB SET Balance = {(int)RemainingCash} WHERE UserName = '{user.UserName}'";
+            string insertQuery = $"UPDATE CustomerTable SET Balance = {(int)RemainingCash} WHERE UserName = '{user.UserName}'";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -104,7 +104,7 @@ namespace ATMSystem
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
             string insertQuery =
-                $"UPDATE ATMDB SET Balance = {(int)((Convert.ToDecimal(receiver.Balance)) + CashTransfer)} WHERE UserName = '{receiver.UserName}'";
+                $"UPDATE CustomerTable SET Balance = {(int)((Convert.ToDecimal(receiver.Balance)) + CashTransfer)} WHERE UserName = '{receiver.UserName}'";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -118,7 +118,7 @@ namespace ATMSystem
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
             string insertQuery =
-                $"UPDATE ATMDB SET Pin_No = {(int)(Convert.ToDecimal(Pin))} WHERE UserName = '{user.UserName}'";
+                $"UPDATE CustomerTable SET Pin_No = {(int)(Convert.ToDecimal(Pin))} WHERE UserName = '{user.UserName}'";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 

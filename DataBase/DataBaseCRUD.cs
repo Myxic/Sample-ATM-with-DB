@@ -27,7 +27,7 @@ namespace DataBase
 
 
             string insertQuery =
-                $@"INSERT INTO ATMDB (First_name, Last_name, UserName, Gender, Card_No, Balance, Pin_No, Phone_Number)
+                $@"INSERT INTO CustomerTable (First_name, Last_name, UserName, Gender, Card_No, Balance, Pin_No, Phone_Number)
                  VALUES (@First_name, @Last_name, @UserName, @Gender, @Card_No, @Balance, @Pin_No, @Phone_Number); SELECT CAST(SCOPE_IDENTITY() AS BIGINT)";
 
 
@@ -123,7 +123,7 @@ namespace DataBase
 
 
             string insertQuery =
-                $"UPDATE ATMDB SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE Card_No =  '{CardNo}' ";
+                $"UPDATE CustomerTable SET First_name = @First_name, Last_name = @Last_name, UserName = @UserName, Gender = @Gender, Card_No =  @Card_No, Balance = @Balance, Pin_No = @Pin_No, Phone_Number = @Phone_Number WHERE Card_No =  '{CardNo}' ";
 
             await using SqlCommand command = new SqlCommand(insertQuery, sqlConn);
 
@@ -215,7 +215,7 @@ namespace DataBase
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
 
-            string deleteQuery = $"DELETE FROM ATMDB WHERE UserName = @UserName ";
+            string deleteQuery = $"DELETE FROM CustomerTable WHERE UserName = @UserName ";
             await using SqlCommand command = new SqlCommand(deleteQuery, sqlConn);
 
             command.Parameters.AddRange(new SqlParameter[]
@@ -241,7 +241,7 @@ namespace DataBase
         public async Task<User> GetUser(string UserName)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = $"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE UserName = @UserName ";
+            string getUserQuery = $"SELECT CustomerTable.First_name, CustomerTable.Last_name, CustomerTable.UserName, CustomerTable.Gender, CustomerTable.Card_No, CustomerTable.Balance, CustomerTable.Pin_No, CustomerTable.Phone_Number FROM  CustomerTable WHERE UserName = @UserName ";
             await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
             command.Parameters.AddRange(new SqlParameter[]
             {
@@ -277,7 +277,7 @@ namespace DataBase
         {
 
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getAllUsersQuery = $"SELECT ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB";
+            string getAllUsersQuery = $"SELECT CustomerTable.First_name, CustomerTable.Last_name, CustomerTable.UserName, CustomerTable.Gender, CustomerTable.Card_No, CustomerTable.Balance, CustomerTable.Pin_No, CustomerTable.Phone_Number FROM  CustomerTable";
             await using SqlCommand command = new SqlCommand(getAllUsersQuery, sqlConn);
             List<User> users = new List<User>();
             using (SqlDataReader dataReader = await command.ExecuteReaderAsync())

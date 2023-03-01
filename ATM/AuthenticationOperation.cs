@@ -26,7 +26,7 @@ namespace ATMSystem
             {
                 SqlConnection sqlConn = await _dbContext.OpenConnection();
                 string VerCardNumber;
-                string getUserQuery = @$"SELECT *  FROM ATMDB  WHERE ATMDB.Card_No = '{Card_No}' ";
+                string getUserQuery = @$"SELECT *  FROM CustomerTable  WHERE CustomerTable.Card_No = '{Card_No}' ";
 
                 await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
 
@@ -65,7 +65,7 @@ namespace ATMSystem
             {
                 string VerCardPin;
                 SqlConnection sqlConn = await _dbContext.OpenConnection();
-                string getUserQuery = $"SELECT ATMDB.Pin_No from ATMDB WHERE Card_No = '{Card_No}' ";
+                string getUserQuery = $"SELECT CustomerTable.Pin_No from CustomerTable WHERE Card_No = '{Card_No}' ";
                 await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
                 using (SqlDataReader dataReader = await command.ExecuteReaderAsync())
                 {
@@ -90,7 +90,7 @@ namespace ATMSystem
         public async Task<User> GetUserDetails(string Card_No)
         {
             SqlConnection sqlConn = await _dbContext.OpenConnection();
-            string getUserQuery = $"SELECT ATMDB.id, ATMDB.First_name, ATMDB.Last_name, ATMDB.UserName, ATMDB.Gender, ATMDB.Card_No, ATMDB.Balance, ATMDB.Pin_No, ATMDB.Phone_Number FROM  ATMDB WHERE Card_No = '{Card_No}' ";
+            string getUserQuery = $"SELECT CustomerTable.id, CustomerTable.First_name, CustomerTable.Last_name, CustomerTable.UserName, CustomerTable.Gender, CustomerTable.Card_No, CustomerTable.Balance, CustomerTable.Pin_No, CustomerTable.Phone_Number FROM  CustomerTable WHERE Card_No = '{Card_No}' ";
             await using SqlCommand command = new SqlCommand(getUserQuery, sqlConn);
 
             User user = new User();
