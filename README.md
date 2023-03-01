@@ -14,3 +14,9 @@
 * Add a new Record/Account to Database
 * Edit Existing Record/Account
 * Delete Existing Record 
+## How to use it
+* Download or clone this Repo.
+* Open and run the sql file to create the Database.
+* Open the folder in Visual Studio or Visual Studio Code.
+* Open the Database folder and select the AtmDBContext file and change the connection string to that which works for your system.
+* Run the project and enjoy.
