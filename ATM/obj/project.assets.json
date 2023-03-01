@@ -2340,9 +2340,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/ATM.csproj",
+      "projectUniqueName": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/BusinessLogic.csproj",
       "projectName": "ATM",
-      "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/ATM.csproj",
+      "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/BusinessLogic.csproj",
       "packagesPath": "/Users/mac/.nuget/packages/",
       "outputPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/obj/",
       "projectStyle": "PackageReference",

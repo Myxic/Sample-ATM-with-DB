@@ -743,19 +743,6 @@
           }
         }
       },
-      "ATM/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "DataBase": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ATM.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ATM.dll": {}
-        }
-      },
       "DataBase/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -2336,11 +2323,6 @@
         "version.txt"
       ]
     },
-    "ATM/1.0.0": {
-      "type": "project",
-      "path": "../ATM/ATM.csproj",
-      "msbuildProject": "../ATM/ATM.csproj"
-    },
     "DataBase/1.0.0": {
       "type": "project",
       "path": "../DataBase/DataBase.csproj",
@@ -2349,7 +2331,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "ATM >= 1.0.0",
       "DataBase >= 1.0.0",
       "Microsoft.Data.SqlClient >= 5.1.0"
     ]
@@ -2380,9 +2361,6 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/ATM.csproj": {
-              "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/ATM/ATM.csproj"
-            },
             "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/DataBase.csproj": {
               "projectPath": "/Users/mac/Desktop/My c# Projects/My-Genaral-C--PROJECTS/Sample ATM with DB/DataBase/DataBase.csproj"
             }

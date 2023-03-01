@@ -13,8 +13,6 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataBase\DataBase.csproj" />
-    <ProjectReference Include="..\ATMOperations\ATMOperations.csproj" />
     <ProjectReference Include="..\ATM\ATM.csproj" />
     <ProjectReference Include="..\DataBase\DataBase.csproj" />
   </ItemGroup>
